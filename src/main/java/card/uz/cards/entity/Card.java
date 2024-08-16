@@ -17,8 +17,8 @@ import java.util.UUID;
 @Builder
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    @GeneratedValue
+    private UUID id = UUID.randomUUID();
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User users_id;

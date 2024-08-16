@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "card")
+@Entity(name = "transaction")
 @Builder
 public class Transaction {
     @Id

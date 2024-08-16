@@ -10,13 +10,14 @@ import java.util.UUID;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "historiy")
+@Entity(name = "idempotency")
 @Builder
-public class History {
+public class Idempotency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private UUID idempotencyKey;
+    @Column(nullable = false)
     private String enCode;
 }
