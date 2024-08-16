@@ -1,0 +1,13 @@
+server:
+  port: 8075
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cards
+    username: postgres
+    password: root123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
