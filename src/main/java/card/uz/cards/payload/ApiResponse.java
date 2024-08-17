@@ -1,7 +1,5 @@
 package card.uz.cards.payload;
 
-
-import org.springframework.http.CacheControl;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 

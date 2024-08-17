@@ -1,10 +1,11 @@
 package card.uz.cards.dto;
 
-import card.uz.cards.model.CardStatus;
-import card.uz.cards.model.Currency;
+import card.uz.cards.entity.CardState.CardStatus;
+import card.uz.cards.entity.CardState.Currency;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 @Getter
 @Setter

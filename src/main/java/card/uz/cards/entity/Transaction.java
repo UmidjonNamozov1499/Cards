@@ -18,17 +18,17 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "transaction_date", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime transactionDate;
 
-    @Column(name = "amount", nullable = false)
+    @Column(nullable = false)
     private BigDecimal amount;
 
     @ManyToOne
-    @JoinColumn(name = "card_id", nullable = false)
+    @JoinColumn(nullable = false)
     private Card card;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(nullable = false)
     private User user;
 }

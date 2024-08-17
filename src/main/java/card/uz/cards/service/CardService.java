@@ -8,6 +8,10 @@ import java.util.UUID;
 
 @Service
 public interface CardService {
-HttpEntity<?> createCard(UUID idempotencyKey, CardCreateDTO dto);
+    HttpEntity<?> createCard(String idempotencyKey, CardCreateDTO dto);
 
+    HttpEntity<?> getCard(String eTag,String  id);
+
+//    HttpEntity<?> blockCard(String cardId,UUID eTag);
+    HttpEntity<?>unBlock(String cardId,String ifMatch);
 }
