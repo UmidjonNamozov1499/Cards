@@ -25,5 +25,4 @@ public class CBU {
 
     @Column(name = "amount", nullable = false)
     private Long amount;
-
 }

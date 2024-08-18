@@ -7,5 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface CBURepository extends JpaRepository<CBU, Long> {
-    Optional<CBU> findFirstByCurrencyOrderByIdDesc(Currency currency);
+    Optional<CBU> findFirstByCurrencyOrderByIdDesc(String currency);
+
+    Optional<CBU> findFirstByCurrencyAndCurrencyExchangeOrderByIdDesc(String currency,String currencyExchange);
 }

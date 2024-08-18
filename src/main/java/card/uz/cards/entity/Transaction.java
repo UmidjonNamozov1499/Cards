@@ -1,5 +1,7 @@
 package card.uz.cards.entity;
 
+import card.uz.cards.entity.CardState.Currency;
+import card.uz.cards.entity.CardState.Purpose;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +19,8 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
+    @Column(nullable = false)
+    private String transactionId;
     @Column(nullable = false)
     private Long amount;
 
@@ -31,4 +33,28 @@ public class Transaction {
     private User user;
     @Column(unique = true)
     private String idempotencyKey;
+    private Long exchangeRate;
+    private Purpose purpose;
+    private Currency currency;
+
+    public Transaction(String transactionId, Long amount, Card card, User user, String idempotencyKey, Long exchangeRate, Purpose purpose, Currency currency) {
+        this.transactionId = transactionId;
+        this.amount = amount;
+        this.card = card;
+        this.user = user;
+        this.idempotencyKey = idempotencyKey;
+        this.exchangeRate = exchangeRate;
+        this.purpose = purpose;
+        this.currency = currency;
+    }
+
+    public Transaction(String transactionId, Long amount, Card card, User user, String idempotencyKey, Long exchangeRate, Currency currency) {
+        this.transactionId = transactionId;
+        this.amount = amount;
+        this.card = card;
+        this.user = user;
+        this.idempotencyKey = idempotencyKey;
+        this.exchangeRate = exchangeRate;
+        this.currency = currency;
+    }
 }

@@ -1,6 +1,7 @@
 package card.uz.cards.controller;
 
 import card.uz.cards.dto.CardCreateDTO;
+import card.uz.cards.dto.TopUpFundsRequestDTO;
 import card.uz.cards.dto.WithdrawRequestDTO;
 import card.uz.cards.payload.Payload;
 import card.uz.cards.payload.ResponseMessage;
@@ -46,6 +47,18 @@ public class CardController {
     public HttpEntity<?> withdraw(@PathVariable String cardId,
                                   @RequestHeader String idempotencyKey,
                                   @RequestBody WithdrawRequestDTO dto) {
-        return cardService.withdraw(cardId, idempotencyKey, dto);
+        return cardService.withdraw(idempotencyKey, cardId, dto);
+    }
+    @PostMapping("/{cardId}/credit")
+    public HttpEntity<?> topUpFunds(@PathVariable String cardId,
+                                    @RequestHeader String idempotencyKey,
+                                    @RequestBody TopUpFundsRequestDTO dto){
+        return cardService.topUpFunds(idempotencyKey,cardId,dto);
+    }
+    @PostMapping("/{cardId}/transactions")
+    public HttpEntity<?> transactions(@PathVariable String cardId,
+                                    @RequestParam(value = "1",name = "page")int page,
+                                      @RequestParam(value = "10",name = "size")int size){
+        return cardService.transaction(cardId,page,size);
     }
 }

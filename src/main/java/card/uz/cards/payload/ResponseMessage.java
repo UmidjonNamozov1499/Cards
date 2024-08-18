@@ -17,6 +17,8 @@ public class ResponseMessage {
     private HttpHeaders header;
 
     private Object object;
+    private int page;
+    private int size;
 
     public ResponseMessage(int code, String message) {
         this.code = code;
