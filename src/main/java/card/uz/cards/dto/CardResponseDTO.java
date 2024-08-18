@@ -16,6 +16,6 @@ public class CardResponseDTO {
     private String card_id;
     private Long user_id;
     private CardStatus status;
-    private BigDecimal balance;
+    private Long balance;
     private Currency currency;
 }

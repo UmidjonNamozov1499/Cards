@@ -18,11 +18,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private LocalDateTime transactionDate;
 
     @Column(nullable = false)
-    private BigDecimal amount;
+    private Long amount;
 
     @ManyToOne
     @JoinColumn(nullable = false)
@@ -31,4 +29,6 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(nullable = false)
     private User user;
+    @Column(unique = true)
+    private String idempotencyKey;
 }
